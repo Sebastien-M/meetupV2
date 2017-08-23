@@ -1,0 +1,29 @@
+{
+  "name": "eventlist-mustache",
+  "version": "0.0.1",
+  "description": "Website page listing events added by Web clients and using mustache template engine",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sebastien-M/eventList-mustache.git"
+  },
+  "keywords": [
+    "mustache",
+    "events",
+    "bootstrap"
+  ],
+  "author": "Sébastien Mandaba",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sebastien-M/eventList-mustache/issues"
+  },
+  "homepage": "https://github.com/Sebastien-M/eventList-mustache#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mustache": "^2.3.0"
+  }
+}
