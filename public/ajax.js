@@ -1,11 +1,10 @@
 let sendbutton = document.body.querySelector('#send');
+
 sendbutton.addEventListener("click", function (e) {
     e.preventDefault();
-    
-    
-    let event = document.querySelector('#name').value;
-    let location = document.querySelector('#place').value;
-    var params = "name="+event+"&location="+location;
+    let event = document.body.querySelector('#name').value;
+    let location = document.body.querySelector('#place').value;
+    let params = "name="+event+"&location="+location;
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '/event/add', true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -16,5 +15,5 @@ sendbutton.addEventListener("click", function (e) {
         }
     }
     xhr.send(params);
-    
+    window.location.reload();
 });

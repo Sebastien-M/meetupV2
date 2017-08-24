@@ -19,10 +19,12 @@
         <input type="text" id="place">
         <input calss="btn btn-primary btn-lg" type="submit" value="Send" id="send">
     </form>
-{{name}}
-<ul>
-
-</ul>
+    <ul>
+        {{#events}}
+        <li><b>{{ev.name}}</b></li>
+        <li>{{ev.location}}</li>
+        {{/events}}
+    </ul>
 
     <script src="ajax.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
