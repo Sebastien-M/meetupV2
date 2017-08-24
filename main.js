@@ -29,7 +29,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(express.static('public/template'));
+
+app.use("/", express.static('public'));
 
 app.use("/private", basicAuth({
     users: {
@@ -40,16 +41,13 @@ app.use("/private", basicAuth({
 }));
 
 app.get("/", function(req, resp) {
-    resp.render('addEvent', {
+    resp.render('index', {
         events: events
     });
 });
 
-app.get("/private", function(req, resp) {
-    resp.send("aaa");
-});
-app.get("/form", function(req, resp) {
-    resp.sendFile(__dirname + "/public/template/formulaire.html");
+app.get("/addEvent", function(req, resp) {
+    resp.render('formulaire', {});
 });
 
 app.post('/event/add', function(req, res) {
@@ -88,7 +86,7 @@ app.engine("html", function(path, options, callback) {
     });
 });
 
-app.set('views', './public/template');
+app.set('views', './template');
 app.set('view engine', 'html');
 app.listen(3000, function() {
     console.log('Listening on port 3000');
