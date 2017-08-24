@@ -21,17 +21,20 @@ app.use("/private", basicAuth({
     realm: 'private'
 }));
 
-app.get("/", function (req, resp) {
+app.get("/", function(req, resp) {
     resp.render('addEvent', {
         events: events
     });
 });
 
-app.get("/private", function (req, resp) {
+app.get("/private", function(req, resp) {
     resp.send("aaa");
 });
+app.get("/form", function(req, resp) {
+    resp.sendFile(__dirname + "/public/template/formulaire.html");
+});
 
-app.post('/event/add', function (req, res) {
+app.post('/event/add', function(req, res) {
     res.sendStatus(200);
     // console.log(req.body.name);
     eventName = req.body.name;
@@ -45,8 +48,8 @@ app.post('/event/add', function (req, res) {
     console.log(events);
 });
 
-app.engine("html", function (path, options, callback) {
-    fs.readFile(path, function (err, content) {
+app.engine("html", function(path, options, callback) {
+    fs.readFile(path, function(err, content) {
         if (err) {
             return callback(err);
         }
@@ -57,6 +60,6 @@ app.engine("html", function (path, options, callback) {
 
 app.set('views', './public/template');
 app.set('view engine', 'html');
-app.listen(3000, function () {
+app.listen(3000, function() {
     console.log('Listening on port 3000');
 });
