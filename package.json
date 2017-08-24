@@ -26,6 +26,7 @@
     "express": "^4.15.4",
     "express-basic-auth": "^1.1.2",
     "http-auth": "^3.2.3",
+    "mariasql": "^0.2.6",
     "mustache": "^2.3.0"
   }
 }
