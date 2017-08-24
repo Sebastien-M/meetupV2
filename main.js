@@ -22,7 +22,7 @@ app.use("/private", basicAuth({
 }));
 
 app.get("/", function (req, resp) {
-    resp.render('index', {
+    resp.render('addEvent', {
         events: events
     });
 });
