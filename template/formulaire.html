@@ -2,16 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Form wizard (using tabs) - Bootsnipp.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="css/form.css">
-    <title>Formulaire</title>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/form.js"></script>
+
 </head>
 
 <body>
-    <script src="form.js"></script>
     <div class="container">
         <div class="row">
             <section>
@@ -21,33 +25,33 @@
                         <ul class="nav nav-tabs" role="tablist">
 
                             <li role="presentation" class="active">
-                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="" data-original-title="Step 1">
                                     <span class="round-tab">
-                                            <i class="glyphicon glyphicon-folder-open"></i>
-                                        </span>
+                                    <i class="glyphicon glyphicon-folder-open"></i>
+                                </span>
                                 </a>
                             </li>
 
                             <li role="presentation" class="disabled">
-                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="" data-original-title="Step 2">
                                     <span class="round-tab">
-                                            <i class="glyphicon glyphicon-pencil"></i>
-                                        </span>
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </span>
                                 </a>
                             </li>
                             <li role="presentation" class="disabled">
-                                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="" data-original-title="Step 3">
                                     <span class="round-tab">
-                                            <i class="glyphicon glyphicon-picture"></i>
-                                        </span>
+                                    <i class="glyphicon glyphicon-picture"></i>
+                                </span>
                                 </a>
                             </li>
 
                             <li role="presentation" class="disabled">
-                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="" data-original-title="Complete">
                                     <span class="round-tab">
-                                            <i class="glyphicon glyphicon-ok"></i>
-                                        </span>
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
                                 </a>
                             </li>
                         </ul>
@@ -64,7 +68,6 @@
                                 <input type="text" name="cat" required/>
                                 <label for="cat">Catégorie </label>
                                 <input type="text" name="cat" required/>
-
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
                                 </ul>
@@ -77,7 +80,6 @@
 
                                 <label for="date">Quand</label>
                                 <input type=date name="lieu">
-
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                                     <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
@@ -88,7 +90,6 @@
                                 <p>This is step 3</p>
                                 <label for="text">Description </label>
                                 <textarea name="text" placeholder="Tapez votre texte ici" autofocus="" accesskey="" rows="10" cols="50"></textarea>
-
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                                     <li><button type="button" class="btn btn-default next-step">Skip</button></li>
@@ -106,6 +107,7 @@
             </section>
         </div>
     </div>
+
 
 
 </body>
