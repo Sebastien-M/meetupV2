@@ -1,13 +1,15 @@
-    @font-face {
-        font-family: "light";
-        src: url('light.ttf');
-    }
-    
-    #title {
-        font-family: "light";
-        font-size: 5em;
-    }
-    /*#title:after {
+@font-face {
+    font-family: "light";
+    src: url('light.ttf');
+}
+
+#title {
+    font-family: "light";
+    font-size: 5em;
+}
+
+
+/*#title:after {
         display: block;
         content: '';
         border-bottom: 2px solid #fff;
@@ -15,7 +17,7 @@
         transition: transform 250ms ease-in-out;
     }
     
-    #title:before {
+   #title:before {
         display: block;
         content: '';
         border-top: 2px solid #fff;
@@ -23,36 +25,38 @@
         transition: transform 250ms ease-in-out;
     }
     
-    #title:hover:after {
+   #title:hover:after {
         transform: scaleX(1);
     }
     
-    #title:hover:before {
+   #title:hover:before {
         transform: scaleX(0.2);
     }*/
-    
-    #start {
-        width: 100%;
-    }
-    
-    #buttonS {
-        margin-top: 4em;
-    }
-    
-    body,
-    html {
-        /* background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("acc.jpg") no-repeat center fixed; */
-        background: url(acc.jpg) no-repeat center fixed;
-        -webkit-background-size: cover;
-        background-size: cover;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-    
-    #pres {
-        font-size: 2.2em;
-        font-family: "light";
-        margin-top: 4em;
-    }
+
+#start {
+    font-family: "light";
+    font-size: 1em;
+    width: 100%;
+}
+
+#buttonS {
+    margin-top: 10em;
+}
+
+body,
+html {
+    /* background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("acc.jpg") no-repeat center fixed; */
+    background: url(acc.jpg) no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#pres {
+    margin-top: 1em;
+    font-size: 2.2em;
+    font-family: "light";
+}
