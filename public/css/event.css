@@ -4,6 +4,7 @@
 }
 
 #title {
+    color: whitesmoke;
     font-family: "light";
     font-size: 5em;
 }
@@ -34,19 +35,20 @@
     }*/
 
 #start {
+    color: whitesmoke;
     font-family: "light";
     font-size: 1em;
+    border: 3px solid whitesmoke;
     width: 100%;
 }
 
 #buttonS {
-    margin-top: 10em;
+    margin-top: 4em;
 }
 
 body,
 html {
-    /* background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("acc.jpg") no-repeat center fixed; */
-    background: url(acc.jpg) no-repeat center fixed;
+    background: url(montain.jpg) no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     height: 100%;
@@ -56,6 +58,7 @@ html {
 }
 
 #pres {
+    color: whitesmoke;
     margin-top: 1em;
     font-size: 2.2em;
     font-family: "light";
