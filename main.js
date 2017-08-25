@@ -20,7 +20,7 @@ var c = new Client({
   c.query('SELECT * FROM events', function(err, rows) {
     if (err)
       throw err;
-    console.dir(rows);
+    // console.dir(rows);
   });
   
   c.end();
