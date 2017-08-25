@@ -50,3 +50,11 @@ function nextTab(elem) {
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
+
+
+let title = document.getElementById("title").value;
+let orga = document.getElementById("orga").value;
+let cat = document.getElementById("cat").value;
+let loca = document.getElementById("location").value;
+let date = document.getElementById("date").value;
+let text = document.getElementById("text").value;
