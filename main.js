@@ -15,15 +15,15 @@ var c = new Client({
     user: 'php',
     password: 'toor',
     db: 'eventfinder'
-  });
+});
 
-  c.query('SELECT * FROM events', function(err, rows) {
+c.query('SELECT * FROM events', function (err, rows) {
     if (err)
-      throw err;
+        throw err;
     // console.dir(rows);
-  });
-  
-  c.end();
+});
+
+c.end();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -40,31 +40,53 @@ app.use("/private", basicAuth({
     realm: 'private'
 }));
 
-app.get("/", function(req, resp) {
+app.get("/", function (req, resp) {
     resp.render('index', {
         events: events
     });
 });
 
-app.get("/addEvent", function(req, resp) {
+app.get("/addEvent", function (req, resp) {
     resp.render('formulaire', {});
 });
 
-app.post('/event/add', function(req, res) {
+app.get("/getEvents", function (req, resp) {
+    let eventsList;
+    c.query('SELECT * FROM events',
+        function (err, rows) {
+            if (err)
+                throw err;
+            // console.dir(rows);
+            eventsList = rows;
+            resp.render('listEvents', {
+                evenements: eventsList
+            });
+        });
+    c.end();
+});
+
+app.post('/event/add', function (req, res) {
     res.sendStatus(200);
     // console.log(req.body.name);
     eventName = req.body.name;
     eventLocation = req.body.location;
-    var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (name, :location, :hour, :category, :description, :organisator);');
-    c.query(prep({ name:"abc", location:"abc", hour:"abc", category:"abc", description:"abc", organisator:"abc" }), function(err, rows) {
-      if (err)
-        throw err;
+    var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (:name, :location, :hour, :category, :description, :organisator);');
+    c.query(prep({
+        name: "abc",
+        location: "abc",
+        hour: "abc",
+        category: "abc",
+        description: "abc",
+        organisator: "abc"
+    }), function (err, rows) {
+        if (err)
+            throw err;
     });
     c.end();
 });
 
-app.engine("html", function(path, options, callback) {
-    fs.readFile(path, function(err, content) {
+app.engine("html", function (path, options, callback) {
+    fs.readFile(path, function (err, content) {
         if (err) {
             return callback(err);
         }
@@ -75,6 +97,6 @@ app.engine("html", function(path, options, callback) {
 
 app.set('views', './template');
 app.set('view engine', 'html');
-app.listen(3000, function() {
+app.listen(3000, function () {
     console.log('Listening on port 3000');
 });

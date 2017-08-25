@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/form.css">
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="js/form.js"></script>
+    
 
 </head>
 
@@ -69,7 +69,7 @@
                                 <label for="cat">Category </label>
                                 <input type="text" name="cat" id="cat">
                                 <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    <li><button type="button" class="btn btn-primary next-step step1">Save and continue</button></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
@@ -93,12 +93,12 @@
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
 
-                                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                    <li><button type="button" class="btn btn-primary btn-info-full next-step" id="endForm">Save and continue</button></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="complete">
                                 <h3>Complete</h3>
-                                <p>You have successfully completed all steps.</p>
+                                <p id="result">You have successfully completed all steps.</p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -109,7 +109,7 @@
     </div>
 
 
-
+    <script src="js/form.js"></script>
 </body>
 
 </html>
