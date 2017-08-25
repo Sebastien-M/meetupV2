@@ -20,7 +20,7 @@ var c = new Client({
   c.query('SELECT * FROM events', function(err, rows) {
     if (err)
       throw err;
-    console.dir(rows);
+    // console.dir(rows);
   });
   
   c.end();
@@ -55,25 +55,12 @@ app.post('/event/add', function(req, res) {
     // console.log(req.body.name);
     eventName = req.body.name;
     eventLocation = req.body.location;
-
-
     var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (name, :location, :hour, :category, :description, :organisator);');
-    
     c.query(prep({ name:"abc", location:"abc", hour:"abc", category:"abc", description:"abc", organisator:"abc" }), function(err, rows) {
       if (err)
         throw err;
     });
-    
     c.end();
-
-
-    events.push({
-        ev: {
-            name: eventName,
-            location: eventLocation
-        }
-    });
-    // console.log(events);
 });
 
 app.engine("html", function(path, options, callback) {

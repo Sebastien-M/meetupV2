@@ -41,6 +41,7 @@
     
     body,
     html {
+        /* background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("acc.jpg") no-repeat center fixed; */
         background: url(acc.jpg) no-repeat center fixed;
         -webkit-background-size: cover;
         background-size: cover;
