@@ -7,7 +7,7 @@ let app = express();
 let bodyParser = require('body-parser');
 let eventName;
 let eventLocation;
-let events = [];
+let events;
 
 
 var c = new Client({
@@ -20,7 +20,6 @@ var c = new Client({
 c.query('SELECT * FROM events', function (err, rows) {
     if (err)
         throw err;
-    // console.dir(rows);
 });
 
 c.end();
@@ -32,18 +31,16 @@ app.use(bodyParser.urlencoded({
 
 app.use("/", express.static('public'));
 
-app.use("/private", basicAuth({
-    users: {
-        'toto': 'toto'
-    },
-    challenge: true,
-    realm: 'private'
-}));
-
 app.get("/", function (req, resp) {
-    resp.render('index', {
-        events: events
+    c.query('SELECT * FROM events', function (err, rows) {
+        if (err)
+            throw err;
+        events = rows;
+        resp.render('index', {
+            events: events
+        });
     });
+    c.end();
 });
 
 app.get("/addEvent", function (req, resp) {
@@ -55,24 +52,8 @@ app.post("/add", function (req, resp) {
     console.log(req.body.name);
 });
 
-app.get("/getEvents", function (req, resp) {
-    let eventsList;
-    c.query('SELECT * FROM events',
-        function (err, rows) {
-            if (err)
-                throw err;
-            // console.dir(rows);
-            eventsList = rows;
-            resp.render('listEvents', {
-                evenements: eventsList
-            });
-        });
-    c.end();
-});
-
 app.post('/event/add', function (req, res) {
     res.sendStatus(200);
-    // console.log(req.body.name);
     eventName = req.body.name;
     eventLocation = req.body.location;
     var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (:name, :location, :hour, :category, :description, :organisator);');

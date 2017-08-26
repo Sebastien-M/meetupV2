@@ -47,3 +47,12 @@ html {
 #rm {
     transition: 1s;
 }
+
+.eventsList{
+    color:white;
+     display:none;
+}
+#evlistinside{
+    transition: 0.5s;
+    opacity: 0;
+}
