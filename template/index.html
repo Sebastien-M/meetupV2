@@ -8,26 +8,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/event.css">
-
     <title>Acceuil</title>
 </head>
 
-<body class="container">
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <a id="free" href="/" class="navbar-brand" href="#">Free Events DataBase</a>
+      <a class="navbar-brand" id="free" href="/">Free Events DataBase</a>
 
-        <div class="navbar-collapse collapse" id="navbarsExampleDefault">
-            <ul class="nav navbar-nav  navbar-right">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/addEvent"><button class="btn btn-outline-secondary">Create event</button></a>
-
-            </ul>
+      <div class="navbar-collapse collapse" id="navbarsExampleDefault" aria-expanded="false" style="">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <div class="form-inline my-2 my-md-0">
+          <a href="/addEvent"><button class="btn btn-outline-success my-2 my-sm-0">Create Event</button></a>
         </div>
+      </div>
     </nav>
+
+<main>
     <div id="rm">
         <h1 id="title" class="text-center">FED</h1>
         <h2 id="pres" class="text-center">
@@ -51,8 +52,9 @@
             {{/events}}
         </ul>
 
-
     </div>
+
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
