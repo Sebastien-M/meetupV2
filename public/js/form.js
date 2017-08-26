@@ -7,10 +7,7 @@ function changeCSS(css) {
 }
 $(document).ready(function () {
     var iframe_height = parseInt($('html').height());
-    window.parent.postMessage(iframe_height, 'https://bootsnipp.com');
 });
-
-//
 
 
 
@@ -74,6 +71,7 @@ document.querySelector("#endForm").addEventListener("click", function (e) {
         document.querySelector("#statut").textContent = "Complete";
         document.querySelector("#result").textContent = "You have successfully completed all steps.";
 
+        //SENDING AJAX REQUEST TO THE PAGE /EVENT/ADD HANDLED BY EXPRESS SERVER
         let params = "name=" + title + "&location=" + loca + "&orga=" + orga + "&cat=" + cat + "&date=" + date + "&desc=" + text;
         let xhr = new XMLHttpRequest();
         xhr.open('POST', '/event/add', true);
