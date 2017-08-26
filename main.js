@@ -50,6 +50,11 @@ app.get("/addEvent", function (req, resp) {
     resp.render('formulaire', {});
 });
 
+app.post("/add", function (req, resp) {
+    resp.send("ok");
+    console.log(req.body.name);
+});
+
 app.get("/getEvents", function (req, resp) {
     let eventsList;
     c.query('SELECT * FROM events',
@@ -72,12 +77,12 @@ app.post('/event/add', function (req, res) {
     eventLocation = req.body.location;
     var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (:name, :location, :hour, :category, :description, :organisator);');
     c.query(prep({
-        name: "abc",
-        location: "abc",
-        hour: "abc",
-        category: "abc",
-        description: "abc",
-        organisator: "abc"
+        name: req.body.name,
+        location: req.body.location,
+        hour: req.body.date,
+        category: req.body.cat,
+        description: req.body.desc,
+        organisator: req.body.orga
     }), function (err, rows) {
         if (err)
             throw err;

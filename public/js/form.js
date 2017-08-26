@@ -1,11 +1,11 @@
-window.alert = function() {};
+window.alert = function () { };
 var defaultCSS = document.getElementById('bootstrap-css');
 
 function changeCSS(css) {
     if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
     else $('head > link').filter(':first').replaceWith(defaultCSS);
 }
-$(document).ready(function() {
+$(document).ready(function () {
     var iframe_height = parseInt($('html').height());
     window.parent.postMessage(iframe_height, 'https://bootsnipp.com');
 });
@@ -14,12 +14,12 @@ $(document).ready(function() {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
 
     //Wizard
-    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
         var $target = $(e.target);
 
@@ -28,14 +28,14 @@ $(document).ready(function() {
         }
     });
 
-    $(".next-step").click(function(e) {
+    $(".next-step").click(function (e) {
 
         var $active = $('.wizard .nav-tabs li.active');
         $active.next().removeClass('disabled');
         nextTab($active);
 
     });
-    $(".prev-step").click(function(e) {
+    $(".prev-step").click(function (e) {
 
         var $active = $('.wizard .nav-tabs li.active');
         prevTab($active);
@@ -52,7 +52,7 @@ function prevTab(elem) {
 }
 
 
-document.querySelector("#endForm").addEventListener("click", function(e) {
+document.querySelector("#endForm").addEventListener("click", function (e) {
     let title = document.getElementById("title").value;
     let orga = document.getElementById("orga").value;
     let cat = document.getElementById("cat").value;
@@ -73,5 +73,19 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         console.log("OK");
         document.querySelector("#statut").textContent = "Complete";
         document.querySelector("#result").textContent = "You have successfully completed all steps.";
+
+        let params = "name=" + title + "&location=" + loca + "&orga=" + orga + "&cat=" + cat + "&date=" + date + "&desc=" + text;
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/event/add', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log("Form sent");
+                }
+            }
+        }
+        xhr.send(params);
+        
     }
 })
