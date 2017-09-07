@@ -17,7 +17,7 @@ var c = new Client({
     db: 'eventfinder'
 });
 
-c.query('SELECT * FROM events', function (err, rows) {
+c.query('SELECT * FROM events', function(err, rows) {
     if (err)
         throw err;
 });
@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({
 
 app.use("/", express.static('public'));
 
-app.get("/", function (req, resp) {
-    c.query('SELECT * FROM events', function (err, rows) {
+app.get("/", function(req, resp) {
+    c.query('SELECT * FROM events', function(err, rows) {
         if (err)
             throw err;
         events = rows;
@@ -43,16 +43,16 @@ app.get("/", function (req, resp) {
     c.end();
 });
 
-app.get("/addEvent", function (req, resp) {
+app.get("/addEvent", function(req, resp) {
     resp.render('formulaire', {});
 });
 
-app.post("/add", function (req, resp) {
+app.post("/add", function(req, resp) {
     resp.send("ok");
     console.log(req.body.name);
 });
 
-app.post('/event/add', function (req, res) {
+app.post('/event/add', function(req, res) {
     res.sendStatus(200);
     eventName = req.body.name;
     eventLocation = req.body.location;
@@ -64,15 +64,15 @@ app.post('/event/add', function (req, res) {
         category: req.body.cat,
         description: req.body.desc,
         organisator: req.body.orga
-    }), function (err, rows) {
+    }), function(err, rows) {
         if (err)
             throw err;
     });
     c.end();
 });
 
-app.engine("html", function (path, options, callback) {
-    fs.readFile(path, function (err, content) {
+app.engine("html", function(path, options, callback) {
+    fs.readFile(path, function(err, content) {
         if (err) {
             return callback(err);
         }
@@ -83,6 +83,6 @@ app.engine("html", function (path, options, callback) {
 
 app.set('views', './template');
 app.set('view engine', 'html');
-app.listen(3000, function () {
+app.listen(3000, function() {
     console.log('Listening on port 3000');
 });

@@ -2,12 +2,16 @@ let button = document.body.querySelector('#start');
 let rm = document.body.querySelector('#rm');
 let free = document.body.querySelector('#free')
 let section = document.body.querySelector('#section');
+let titre = document.body.querySelector('#titre');
 
 
 button.addEventListener('click', function() {
+    // titre.style.display = block;
     rm.style.opacity = 0;
 
+
     setTimeout(function() {
+        titre.style.display = block;
         rm.style.display = none;
     }, 1000)
 });

@@ -138,3 +138,8 @@ span.round-tab:hover {
         left: 35%;
     }
 }
+
+#title {
+    color: black;
+    font-size: 10px;
+}

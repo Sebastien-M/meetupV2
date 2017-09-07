@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
     <!-- BOOTSRAP 4 -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" -->
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/event.css">
     <title>Add your event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,117 +14,114 @@
     <link rel="stylesheet" href="css/form.css">
 
     <!-- L'importation de bootstrap 3 et 4 fout la merde! -->
-    
+
 
 </head>
 
 <body>
 
 
-     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" id="free" href="/">Free Events DataBase</a>
+        <a class="navbar-brand" id="free" href="/">Free Events DataBase</a>
 
-      <div class="navbar-collapse collapse" id="navbarsExampleDefault" aria-expanded="false" style="">
-        <ul class="navbar-nav mr-auto">
-        </ul>
-        <div class="form-inline my-2 my-md-0">
-          <a id="createEventButton" href="/addEvent"><button class="btn btn-outline-success my-2 my-sm-0">Create Event</button></a>
+        <div class="navbar-collapse collapse" id="navbarsExampleDefault" aria-expanded="false" style="">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <div class="form-inline my-2 my-md-0">
+                <a id="createEventButton" href="/addEvent"><button class="btn btn-outline-success my-2 my-sm-0">Create Event</button></a>
+            </div>
         </div>
-      </div>
     </nav>
 
 
     <div class="container col-md-10 col-md-offset-1">
-            <section>
-                <div class="wizard">
-                    <div class="wizard-inner">
-                        <div class="connecting-line"></div>
-                        <ul class="nav nav-tabs" role="tablist">
+        <section>
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
 
-                            <li role="presentation" class="active">
-                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="" data-original-title="Step 1">
-                                    <span class="round-tab">
+                        <li role="presentation" class="active">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="" data-original-title="Step 1">
+                                <span class="round-tab">
                                     <i class="glyphicon glyphicon-home"></i>
                                 </span>
-                                </a>
-                            </li>
+                            </a>
+                        </li>
 
-                            <li role="presentation" class="disabled">
-                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="" data-original-title="Step 2">
-                                    <span class="round-tab">
+                        <li role="presentation" class="disabled">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="" data-original-title="Step 2">
+                                <span class="round-tab">
                                     <i class="glyphicon glyphicon-time"></i>
                                 </span>
-                                </a>
-                            </li>
-                            <li role="presentation" class="disabled">
-                                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="" data-original-title="Step 3">
-                                    <span class="round-tab">
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="" data-original-title="Step 3">
+                                <span class="round-tab">
                                     <i class="glyphicon glyphicon-pencil"></i>
                                 </span>
-                                </a>
-                            </li>
+                            </a>
+                        </li>
 
-                            <li role="presentation" class="disabled">
-                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="" data-original-title="Complete">
-                                    <span class="round-tab">
+                        <li role="presentation" class="disabled">
+                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="" data-original-title="Complete">
+                                <span class="round-tab">
                                     <i class="glyphicon glyphicon-ok"></i>
                                 </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <form action="" method="POST">
-                        <div class="tab-content">
-                            <div class="tab-pane active" role="tabpanel" id="step1">
-                                <h3>Step 1</h3>
-                                <p>This is step 1</p>
-                                <label for="event">Name of your event</label>
-                                <input type="text" name="title" id="title"></br>
-                                <label for="Organisteur">Organizers </label>
-                                <input type="text" name="organizers" id="orga"></br>
-                                <label for="cat">Category </label>
-                                <input type="text" name="cat" id="cat">
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-primary next-step step1">Save and continue</button></li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" role="tabpanel" id="step2">
-                                <h3>Step 2</h3>
-                                <p>This is step 2</p>
-                                <label for="lieu">Location </label>
-                                <input type="text" name="location" id="location"></br>
-
-                                <label for="date">Select a date </label>
-                                <input type=date name="date" id="date">
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" role="tabpanel" id="step3">
-                                <h3>Step 3</h3>
-                                <p>This is step 3</p>
-                                <label for="text">Description </label></br>
-                                <textarea name="text" id="text" placeholder="Tapez votre texte ici" autofocus="" accesskey="" rows="10" cols="50"></textarea>
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-
-                                    <li><button type="button" class="btn btn-primary btn-info-full next-step" id="endForm">Save and continue</button></li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" role="tabpanel" id="complete">
-                                <h3 id="statut"></h3>
-                                <p id="result"></p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </form>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
+
+                <form action="" method="POST">
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="step1">
+                            <h3>Step 1</h3>
+                            <label for="event">Name</label>
+                            <input type="text" name="title" id="title"></br>
+                            <label for="Organisteur">Organizers </label>
+                            <input type="text" name="organizers" id="orga"></br>
+                            <label for="cat">Category </label>
+                            <input type="text" name="cat" id="cat">
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-primary next-step step1">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <h3>Step 2</h3>
+                            <label for="lieu">Location </label>
+                            <input type="text" name="location" id="location"></br>
+
+                            <label for="date">Select a date </label>
+                            <input type=date name="date" id="date">
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <h3>Step 3</h3>
+                            <label for="text">Description </label></br>
+                            <textarea name="text" id="text" placeholder="Tapez votre texte ici" autofocus="" accesskey="" rows="10" cols="50"></textarea>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+
+                                <li><button type="button" class="btn btn-primary btn-info-full next-step" id="endForm">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="complete">
+                            <h3 id="statut"></h3>
+                            <p id="result"></p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
     </div>
 
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>

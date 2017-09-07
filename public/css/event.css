@@ -5,10 +5,6 @@
 
 #createEventButton {}
 
-#section {
-    display: none;
-}
-
 .btn-outline-success {
     color: white;
     border: 1px solid white;
@@ -25,6 +21,15 @@
     color: whitesmoke;
     font-family: "light";
     font-size: 5em;
+}
+
+#titre {
+    display: none;
+    color: whitesmoke;
+    font-family: "light";
+    font-size: 2em;
+    margin-top: 1em;
+    border-bottom: outset 4px white;
 }
 
 #free {
@@ -72,11 +77,31 @@ main {
 }
 
 .eventsList {
-    color: white;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    list-style: none;
     display: none;
+    font-family: "light";
+    color: whitesmoke;
+    margin-top: 2em;
+    /* background-color: black;
+    opacity: 0.7;
+    border: 1px solid white; */
 }
 
 #evlistinside {
     transition: 0.5s;
     opacity: 0;
+    list-style: none;
+    margin: auto;
+}
+
+#stilevent {
+    list-style: none;
+}
+
+#infoevent {
+    list-style: none;
+    padding: 0;
 }

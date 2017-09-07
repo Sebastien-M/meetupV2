@@ -37,28 +37,36 @@
                 <button id="start" type="button" class="btn btn-outline-secondary">START</button>
             </div>
         </div>
-        <section id="section" class="container-fluid col-md-8 col-md-offset-2">
-            <div class="eventsList">
+        <h1 id="titre" class="text-center page-header">Listes des Evenements</h1>
+        <div class="container eventsList">
 
-                <ul id="evlistinside">
-                    {{#events}}
-                    <li>{{name}}</li>
-                    <ul>
-                        <li>{{location}}</li>
-                        <li>{{hour}}</li>
-                        <li>{{category}}</li>
-                        <li>{{description}}</li>
-                        <li>{{organisator}}</li>
+
+            <div class="row" id="evlistinside">
+                {{#events}}
+                <div class="col-md-3" id="stilevent">
+                    <ul id="infoevent">
+                        <li>Titre: {{name}}</li>
+                        <li>Localisation: {{location}}</li>
+                        <li>Date et heurs: {{hour}}</li>
+                        <li>Categorie: {{category}}</li>
+                        <li>Description: {{description}}</li>
+                        <li>Organisateur: {{organisator}}</li>
+                        <li>
+                            <button id="delet" type="button" class="btn btn-danger">Delete</button>
+                        </li>
                     </ul>
-                    {{/events}}
-                </ul>
-
+                </div>
+                {{/events}}
             </div>
-        </section>
+
+
+        </div>
+
+
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="js/index.js">
