@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="css/event.css">
     <title>Add your event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- BOOTSTRAP 3 -->
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <link rel="stylesheet" href="css/form.css">
 
     <!-- L'importation de bootstrap 3 et 4 fout la merde! -->
@@ -36,93 +34,36 @@
         </div>
     </nav>
 
-
-    <div class="container col-md-10 col-md-offset-1">
-        <section>
-            <div class="wizard">
-                <div class="wizard-inner">
-                    <div class="connecting-line"></div>
-                    <ul class="nav nav-tabs" role="tablist">
-
-                        <li role="presentation" class="active">
-                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="" data-original-title="Step 1">
-                                <span class="round-tab">
-                                    <i class="glyphicon glyphicon-home"></i>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li role="presentation" class="disabled">
-                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="" data-original-title="Step 2">
-                                <span class="round-tab">
-                                    <i class="glyphicon glyphicon-time"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="disabled">
-                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="" data-original-title="Step 3">
-                                <span class="round-tab">
-                                    <i class="glyphicon glyphicon-pencil"></i>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li role="presentation" class="disabled">
-                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="" data-original-title="Complete">
-                                <span class="round-tab">
-                                    <i class="glyphicon glyphicon-ok"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <form action="" method="POST">
-                    <div class="tab-content">
-                        <div class="tab-pane active" role="tabpanel" id="step1">
-                            <h3>Step 1</h3>
-                            <label for="event">Name</label>
-                            <input type="text" name="title" id="title"></br>
-                            <label for="Organisteur">Organizers </label>
-                            <input type="text" name="organizers" id="orga"></br>
-                            <label for="cat">Category </label>
-                            <input type="text" name="cat" id="cat">
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-primary next-step step1">Save and continue</button></li>
-                            </ul>
-                        </div>
-                        <div class="tab-pane" role="tabpanel" id="step2">
-                            <h3>Step 2</h3>
-                            <label for="lieu">Location </label>
-                            <input type="text" name="location" id="location"></br>
-
-                            <label for="date">Select a date </label>
-                            <input type=date name="date" id="date">
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                            </ul>
-                        </div>
-                        <div class="tab-pane" role="tabpanel" id="step3">
-                            <h3>Step 3</h3>
-                            <label for="text">Description </label></br>
-                            <textarea name="text" id="text" placeholder="Tapez votre texte ici" autofocus="" accesskey="" rows="10" cols="50"></textarea>
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-
-                                <li><button type="button" class="btn btn-primary btn-info-full next-step" id="endForm">Save and continue</button></li>
-                            </ul>
-                        </div>
-                        <div class="tab-pane" role="tabpanel" id="complete">
-                            <h3 id="statut"></h3>
-                            <p id="result"></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </form>
+    <!-- premier form -->
+    <div id="form" class="container">
+        <h1 id="hun" class="col-md-4 offset-md-3">Creation d'evenements</h1>
+        <form class="col-md-6  offset-md-3" action="#" method="POST">
+            <div class="form-group" id="step1">
+                <label class="label" for="orga">Organisateur</label>
+                <input class="iputP form-control" type="text" id="orga" name="orga" placeholder="thomas">
+                <label class="label" for="title">Titre de l'evenements</label>
+                <input class="form-control" type="text" id="title" name="title" placeholder="lol">
+                <button class=" btnP btn btn-success col-md-2  offset-md-5" id="send1">send</button>
             </div>
-        </section>
+
+            <div class="form-group" id="step2">
+                <label class="label" for="categorie">Categories</label>
+                <input class="iputP form-control" type="text" id="cat" name="cat" placeholder="fight">
+                <label class="label" for="localisation">Localisation</label>
+                <input class="form-control" type="text" id="loca" name="loca" placeholder="Lyon">
+                <button class="btnP btn btn-success col-md-2  offset-md-5" id="send2">win</button>
+            </div>
+
+            <div class="form-group" id="step3">
+                <label class="label" for="date">Date</label>
+                <input class="iputP form-control" type="date" id="date" name="date" placeholder="11/09/17">
+                <label class="label" for="description">Description</label>
+                <input class="form-control" type="text" id="text" name="text" placeholder="blablabla">
+                <input class="btnP btn btn-success col-md-2  offset-md-5" type="submit" id="endForm" value="SEND">
+            </div>
+            </from>
     </div>
+
 
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
