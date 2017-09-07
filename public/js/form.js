@@ -1,11 +1,5 @@
 "use strict";
 
-let title = document.getElementById("title").value;
-let orga = document.getElementById("orga").value;
-let cat = document.getElementById("cat").value;
-let loca = document.getElementById("location").value;
-let date = document.getElementById("date").value;
-let text = document.getElementById("text").value;
 
 
 
@@ -37,9 +31,13 @@ send2.addEventListener('click', function(e) {
 
 
 
-
-
 document.querySelector("#endForm").addEventListener("click", function(e) {
+    let title = document.getElementById("title").value;
+    let orga = document.getElementById("orga").value;
+    let cat = document.getElementById("cat").value;
+    let loca = document.getElementById("location").value;
+    let date = document.getElementById("date").value;
+    let text = document.getElementById("text").value;
     if (title === "" ||
         orga === "" ||
         cat === "" ||
