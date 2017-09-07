@@ -37,34 +37,34 @@
                 <button id="start" type="button" class="btn btn-outline-secondary">START</button>
             </div>
         </div>
-        <h1 id="titre" class="text-center page-header">Listes des Evenements</h1>
-        <div class="container eventsList">
+    </main>
+    <h1 id="titre" class="text-center">Listes des Evenements</h1>
+    <div class="container eventsList">
 
 
-            <div class="row" id="evlistinside">
-                {{#events}}
-                <div class="col-md-3" id="stilevent">
-                    <ul id="infoevent">
-                        <li>Titre: {{name}}</li>
-                        <li>Localisation: {{location}}</li>
-                        <li>Date et heurs: {{hour}}</li>
-                        <li>Categorie: {{category}}</li>
-                        <li>Description: {{description}}</li>
-                        <li>Organisateur: {{organisator}}</li>
-                        <li>
-                            <button id="delet" type="button" class="btn btn-danger">Delete</button>
-                        </li>
-                    </ul>
-                </div>
-                {{/events}}
+        <div class="row" id="evlistinside">
+            {{#events}}
+            <div class="col-md-3" id="stilevent">
+                <ul id="infoevent">
+                    <li>Titre: {{name}}</li>
+                    <li>Localisation: {{location}}</li>
+                    <li>Date et heurs: {{hour}}</li>
+                    <li>Categorie: {{category}}</li>
+                    <li>Description: {{description}}</li>
+                    <li>Organisateur: {{organisator}}</li>
+                    <li>
+                        <button id="delet" type="button" class="btn btn-danger">Delete</button>
+                    </li>
+                </ul>
             </div>
-
-
+            {{/events}}
         </div>
 
 
+    </div>
 
-    </main>
+
+
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
