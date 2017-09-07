@@ -7,33 +7,37 @@ let section = document.body.querySelector('#section');
 let titre = document.body.querySelector('#titre');
 let delet = document.body.querySelector("#delet");
 let eventdel = document.body.querySelector("#stilevent");
+let mainEventContainer = document.querySelector(".evenements");
 
 
-delet.addEventListener('click', function() {
+delet.addEventListener('click', function () {
 
 
 })
 
-button.addEventListener('click', function() {
-    setTimeout(function() {
-        rm.style.opacity = 0;
-
-
-        // rm.style.display = none;
-        rm.remove();
-        titre.style.display = "block";
-        eventsList.style.display = "flex";
-
-        setTimeout(function() {
-            eventsListInside.style.opacity = 1;
-        }, 50);
-
-    }, 1000)
+button.addEventListener('click', function () {
+    titre.style.display = "block";
+    eventsList.style.display = "flex";
+    mainEventContainer.style.display = "block";
+    scrollTo(".evenements");
+    titre.style.display = "block";
+    eventsList.style.display = "flex";
+    mainEventContainer.style.display = "block";
+    scrollTo(".evenements");
+    eventsListInside.style.opacity = 1;
 });
 
-free.addEventListener('mouseover', function() {
+free.addEventListener('mouseover', function () {
     free.style.color = '#116cff';
 })
-free.addEventListener('mouseout', function() {
+free.addEventListener('mouseout', function () {
     free.style.color = 'white';
 })
+
+
+function scrollTo(id) {
+    $('html, body').animate({
+        scrollTop: $(id).offset().top
+    }, 'slow');
+    return false;
+}
