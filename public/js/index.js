@@ -13,7 +13,20 @@ let eventid;
 for (let i = 0; i< delet.length; i++) {
     delet[i].addEventListener("click", function (params) {
         eventid = delet[i].id;
-        console.log(eventid)
+        // console.log(eventid)
+        let paramsql = "id=" + eventid;
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/event/del', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(`event with id ${eventid} deleted from database`);
+                }
+            }
+        }
+        xhr.send(paramsql);
+        location.reload();
     });
 }
 // delet.addEventListener('click', function (e) {

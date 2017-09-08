@@ -43,6 +43,19 @@ app.get("/", function(req, resp) {
     c.end();
 });
 
+
+app.post("/event/del", function(req, resp) {
+        var prep = c.prepare('DELETE FROM events WHERE id=:id;');
+        c.query(prep({
+            id: req.body.id
+        }), function(err, rows) {
+            if (err)
+                throw err;
+        });
+        c.end();
+});
+
+
 app.get("/addEvent", function(req, resp) {
     resp.render('formulaire', {});
 });
