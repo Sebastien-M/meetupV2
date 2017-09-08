@@ -51,7 +51,8 @@
 
 body,
 html {
-    background: url(montain.jpg) no-repeat center fixed;
+    /* background: url(montain.jpg) no-repeat center fixed; */
+    background: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url('montain.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     height: 100%;
@@ -87,6 +88,7 @@ main {
     display: none;
     font-family: "light";
     color: black;
+    padding-top: 20px;
 }
 
 #evlistinside {

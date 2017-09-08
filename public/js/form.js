@@ -32,6 +32,7 @@ send2.addEventListener('click', function(e) {
 
 
 document.querySelector("#endForm").addEventListener("click", function(e) {
+    e.preventDefault();
     let title = document.getElementById("title").value;
     let orga = document.getElementById("orga").value;
     let cat = document.getElementById("cat").value;
@@ -45,12 +46,12 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         date === "" ||
         text === "") {
         console.log("All filds must be completed");
-        document.querySelector("#statut").textContent = "Error";
+        // document.querySelector("#statut").textContent = "Error";
         document.querySelector("#result").textContent = "All filds must be completed!";
 
     } else {
         console.log("OK");
-        document.querySelector("#statut").textContent = "Complete";
+        // document.querySelector("#statut").textContent = "Complete";
         document.querySelector("#result").textContent = "You have successfully completed all steps.";
 
         //SENDING AJAX REQUEST TO THE PAGE /EVENT/ADD HANDLED BY EXPRESS SERVER
@@ -68,4 +69,4 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         xhr.send(params);
 
     }
-})
+});

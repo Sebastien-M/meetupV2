@@ -5,15 +5,23 @@ let eventsList = document.body.querySelector('.eventsList');
 let eventsListInside = document.body.querySelector('#evlistinside');
 let section = document.body.querySelector('#section');
 let titre = document.body.querySelector('#titre');
-let delet = document.body.querySelector("#delet");
+let delet = document.body.querySelectorAll(".delbtn");
 let eventdel = document.body.querySelector("#stilevent");
 let mainEventContainer = document.querySelector(".evenements");
+let eventid;
 
+for (let i = 0; i< delet.length; i++) {
+    delet[i].addEventListener("click", function (params) {
+        eventid = delet[i].id;
+        console.log(eventid)
+    });
+}
+// delet.addEventListener('click', function (e) {
+//     eventid = document.querySelector("#event-id").value;
+//     console.log(eventid);
+//     e.preventDefault();
 
-delet.addEventListener('click', function () {
-
-
-})
+// })
 
 button.addEventListener('click', function () {
     titre.style.display = "block";

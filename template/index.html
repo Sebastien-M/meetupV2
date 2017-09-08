@@ -34,7 +34,7 @@
         <div id="rm">
             <h1 id="title" class="text-center">FED</h1>
             <h2 id="pres" class="text-center">
-                Hello welcome to our website, here you can find / create events that suit you</h2>
+                Hello welcome to the Free Events Database, here you can find and create events that suit you!</h2>
             <div id="buttonS" class="container col-md-2 col-md-offset-5">
                 <button id="start" type="button" class="btn btn-outline-secondary">START</button>
             </div>
@@ -54,7 +54,9 @@
                         <li id="event_cat">Categorie: {{category}}</li>
                         <li id="event_desc">Description: {{description}}</li>
                         <li id="event_orga">Organisateur: {{organisator}}</li>
-                        <li id="event_send"><button id="delet" type="button" class="btn btn-danger">Delete</button></li>
+                        <li id="event_send">
+                            <button id="{{id}}" type="button" class="btn btn-danger delbtn">Delete</button>
+                        </li>
                     </ul>
                 </div>
                 {{/events}}
@@ -67,6 +69,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
     <script src="js/index.js">
+
     </script>
 
 </html>
