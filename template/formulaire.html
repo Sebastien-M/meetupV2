@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
     <!-- BOOTSRAP 4 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/event.css">
     <title>Add your event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- L'importation de bootstrap 3 et 4 fout la merde! -->
 
@@ -21,8 +21,7 @@
 
 
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
         <a class="navbar-brand" id="free" href="/">Free Events DataBase</a>
@@ -37,22 +36,29 @@
 
     <!-- premier form -->
     <div id="form" class="container">
-        <h1 id="hun" class="col-md-4 offset-md-3">Creation d'evenements</h1>
+        <div class="col-md-4 offset-md-3">
+            <h1 id="hun">Creation d'evenements</h1>
+            <h2 id="titre1" class="hunn">Step 1</h2>
+            <h2 id="titre2" class="hunn">Step 2</h2>
+            <h2 id="titre3" class="hunn">Step 3</h2>
+        </div>
         <form class="col-md-6  offset-md-3" action="#" method="POST">
             <div class="form-group" id="step1">
                 <label class="label" for="orga">Organisateur</label>
                 <input class="iputP form-control" type="text" id="orga" name="orga" placeholder="thomas">
                 <label class="label" for="title">Titre de l'evenements</label>
                 <input class="form-control" type="text" style="color:black" id="title" name="title" placeholder="lol">
-                <button class=" btnP btn btn-success col-md-2  offset-md-5" id="send1">Step2</button>
-            </div>
 
+                <button class=" btnP btn btn-success col-md-2 offset-md-7" id="back1">BACK</button>
+                <button class=" btnP btn btn-success col-md-2" id="send1"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
             <div class="form-group" id="step2">
                 <label class="label" for="categorie">Categories</label>
                 <input class=" iputP form-control" type="text" id="cat" name="cat" placeholder="fight">
                 <label class="label" for="localisation">Localisation</label>
                 <input class=" form-control" type="text" id="location" name="loca" placeholder="Lyon">
-                <button class="btnP btn btn-success col-md-2  offset-md-5" id="send2">Step3</button>
+                <button class=" btnP btn btn-success col-md-2  offset-md-7" id="back2">BACK</button>
+                <button class="btnP btn btn-success col-md-2" id="send2"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </div>
 
             <div class="form-group" id="step3">
@@ -60,12 +66,13 @@
                 <input class="iputP form-control" type="date" id="date" name="date">
                 <label class="label" for="description">Description</label>
                 <input class="form-control" type="text" id="text" name="text" placeholder="blablabla">
-                <input class="btnP btn btn-success col-md-2  offset-md-5" type="submit" id="endForm" value="SEND">
+                <button class=" btnP btn btn-success col-md-2  offset-md-7" id="back3">BACK</button>
+                <button class=" btnP btn  btn-success col-md-2" id="endForm"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
         </form>
         <p style="color:white" id="result"></p>
     </div>
-    
+
 
 
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
