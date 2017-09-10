@@ -12,7 +12,7 @@
     <title>Acceuil</title>
 </head>
 
-<body>
+<body class="container-fluid">
 
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
         <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -41,23 +41,25 @@
         </div>
     </main>
 
-    <div class="evenements" style="background-color:white; padding:40px 0 40px 0;">
-        <h1 id="titre" class="text-center page-header" style="color:black">Listes des Evenements</h1>
-        <div class="container eventsList">
+    <div class="evenements" style="background-color:rgba(41, 43, 44, 0.7); padding:40px 0 40px 0;">
+        <h1 id="titre" class="text-center page-header" style="color:whitesmoke">Listes des Evenements</h1>
+        <div class="eventsList">
             <div class="row" id="evlistinside">
                 {{#events}}
-                <div class="col-md-4 col-md-offset-1" id="stilevent">
-                    <ul id="infoevent" style="text-align:center;">
-                        <li id="event_titre">{{name}}</li>
-                        <li id="event_loca">Localisation: {{location}}</li>
-                        <li id="event_hour">Date et heure: {{hour}}</li>
-                        <li id="event_cat">Categorie: {{category}}</li>
-                        <li id="event_desc">Description: {{description}}</li>
-                        <li id="event_orga">Organisateur: {{organisator}}</li>
-                        <li id="event_send">
-                            <button id="{{id}}" type="button" class="btn btn-danger delbtn">Delete</button>
-                        </li>
-                    </ul>
+                <div class="col-md-4 mb-4">
+                    <div id="stilevent">
+                        <ul id="infoevent" >
+                            <li id="event_titre"><h3>{{name}}</h3></li>
+                            <li id="event_loca">Localisation: {{location}}</li>
+                            <li id="event_hour">Date et heure: {{hour}}</li>
+                            <li id="event_cat">Categorie: {{category}}</li>
+                            <li id="event_desc">Description: {{description}}</li>
+                            <li id="event_orga">Organisateur: {{organisator}}</li>
+                            <li id="event_send">
+                                <button id="{{id}}" type="button" class="btn btn-danger delbtn">Delete</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 {{/events}}
             </div>
@@ -68,7 +70,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-    <script src="js/index.js">
+    <!-- <script src="js/index.js"> -->
 
     </script>
 

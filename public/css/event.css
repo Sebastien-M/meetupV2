@@ -24,7 +24,7 @@
 }
 
 #titre {
-    display: none;
+    /* display: none; */
     color: whitesmoke;
     font-family: "light";
     font-size: 2em;
@@ -52,7 +52,7 @@
 body,
 html {
     /* background: url(montain.jpg) no-repeat center fixed; */
-    background: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url('montain.jpg') no-repeat center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('montain.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     height: 100%;
@@ -77,7 +77,7 @@ main {
     transition: 1s;
 }
 .evenements{
-    display:none;
+    /* display:none; */
 }
 .eventsList {
     flex-direction: column;
@@ -85,21 +85,23 @@ main {
     font-size: 18px;
     font-weight: bold;
     list-style: none;
-    display: none;
     font-family: "light";
-    color: black;
+    color: whitesmoke;
     padding-top: 20px;
 }
 
 #evlistinside {
     transition: 0.5s;
-    opacity: 0;
+    /* opacity: 0; */
     list-style: none;
     margin: auto;
 }
 
 #stilevent {
     list-style: none;
+    padding: 10px;
+    border:1px solid lightcoral;
+    /* margin: 5px; */
 }
 
 #infoevent {
