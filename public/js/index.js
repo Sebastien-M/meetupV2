@@ -1,3 +1,4 @@
+"use strict" ;
 let button = document.body.querySelector('#start');
 let rm = document.body.querySelector('#rm');
 let free = document.body.querySelector('#free')
@@ -9,11 +10,16 @@ let delet = document.body.querySelectorAll(".delbtn");
 let eventdel = document.body.querySelector("#stilevent");
 let mainEventContainer = document.querySelector(".evenements");
 let eventid;
+let eventscreen = document.querySelector(".evenements");
+
+eventscreen.style.display = "none";
+eventscreen.style.opacity = 1;
 
 for (let i = 0; i< delet.length; i++) {
     delet[i].addEventListener("click", function (params) {
+        console.log("clicked");
         eventid = delet[i].id;
-        // console.log(eventid)
+        console.log(eventid)
         let paramsql = "id=" + eventid;
         let xhr = new XMLHttpRequest();
         xhr.open('POST', '/event/del', true);
@@ -37,15 +43,8 @@ for (let i = 0; i< delet.length; i++) {
 // })
 
 button.addEventListener('click', function () {
-    titre.style.display = "block";
-    eventsList.style.display = "flex";
-    mainEventContainer.style.display = "block";
+    eventscreen.style.display = "block";
     scrollTo(".evenements");
-    titre.style.display = "block";
-    eventsList.style.display = "flex";
-    mainEventContainer.style.display = "block";
-    scrollTo(".evenements");
-    eventsListInside.style.opacity = 1;
 });
 
 free.addEventListener('mouseover', function () {

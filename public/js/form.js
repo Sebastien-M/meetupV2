@@ -77,7 +77,7 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         console.log("All filds must be completed");
         // document.querySelector("#statut").textContent = "Error";
         document.querySelector("#result").textContent = "All filds must be completed!";
-        window.location = "/";
+        
 
     } else {
         console.log("OK");
@@ -93,6 +93,7 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log("Form sent");
+                    window.location = "/";
                 }
             }
         }
