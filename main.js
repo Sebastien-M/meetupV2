@@ -88,8 +88,8 @@ app.post('/event/add', function(req, res) {
 });
 app.post('/register/add', function(req, res) {
     res.sendStatus(200);
-    eventName = req.body.name;
-    eventLocation = req.body.location;
+    eventName = req.body.nom;
+    eventPrenom = req.body.prenom;
     var prep = c.prepare('INSERT INTO users(nom, prenom, age, adresse, date_naissance, genre) VALUES (:nom, :prenom, :age, :adresse, :date, :genre);');
     c.query(prep({
         nom: req.body.nom,
