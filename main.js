@@ -45,19 +45,22 @@ app.get("/", function(req, resp) {
 
 
 app.post("/event/del", function(req, resp) {
-        var prep = c.prepare('DELETE FROM events WHERE id=:id;');
-        c.query(prep({
-            id: req.body.id
-        }), function(err, rows) {
-            if (err)
-                throw err;
-        });
-        c.end();
+    var prep = c.prepare('DELETE FROM events WHERE id=:id;');
+    c.query(prep({
+        id: req.body.id
+    }), function(err, rows) {
+        if (err)
+            throw err;
+    });
+    c.end();
 });
 
 
 app.get("/addEvent", function(req, resp) {
     resp.render('formulaire', {});
+});
+app.get("/addUser", function(req, resp) {
+    resp.render('register', {});
 });
 
 app.post("/add", function(req, resp) {
@@ -83,6 +86,25 @@ app.post('/event/add', function(req, res) {
     });
     c.end();
 });
+app.post('/register/add', function(req, res) {
+    res.sendStatus(200);
+    eventName = req.body.name;
+    eventLocation = req.body.location;
+    var prep = c.prepare('INSERT INTO users(nom, prenom, age, adresse, date_naissance, genre) VALUES (:nom, :prenom, :age, :adresse, :date, :genre);');
+    c.query(prep({
+        nom: req.body.nom,
+        prenom: req.body.prenom,
+        age: req.body.age,
+        adresse: req.body.adresse,
+        date: req.body.date,
+        genre: req.body.genre
+    }), function(err, rows) {
+        if (err)
+            throw err;
+    });
+    c.end();
+});
+
 
 app.engine("html", function(path, options, callback) {
     fs.readFile(path, function(err, content) {

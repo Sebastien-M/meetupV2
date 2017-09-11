@@ -59,13 +59,23 @@ html {
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     padding: 0;
-    margin:0;
+    margin: 0;
+}
+
+#create {
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+#create:hover {
+    color: rgb(17, 108, 255);
 }
 
 main {
-    height: 92vh;
+    height: 91vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -82,9 +92,11 @@ main {
 #rm {
     transition: 1s;
 }
-.evenements{
+
+.evenements {
     /* display:none; */
 }
+
 .eventsList {
     flex-direction: column;
     justify-content: center;
@@ -106,7 +118,7 @@ main {
 #stilevent {
     list-style: none;
     padding: 10px;
-    border:1px solid lightcoral;
+    border: 1px solid lightcoral;
     /* margin: 5px; */
 }
 

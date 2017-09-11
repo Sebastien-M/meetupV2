@@ -37,36 +37,36 @@
     <!-- premier form -->
     <div id="form" class="container">
         <div class="col-md-4 offset-md-3">
-            <h1 id="hun">Create an event</h1>
+            <h1 id="hun">Register</h1>
             <h2 id="titre1" class="hunn">Step 1</h2>
             <h2 id="titre2" class="hunn">Step 2</h2>
             <h2 id="titre3" class="hunn">Step 3</h2>
         </div>
         <form class="col-md-6  offset-md-3" action="#" method="POST">
             <div class="form-group" id="step1">
-                <label class="label" for="orga">Organizer</label>
-                <input class="iputP form-control" type="text" id="orga" name="orga" placeholder="thomas">
-                <label class="label" for="title">Name of the event</label>
-                <input class="form-control" type="text" style="color:black" id="title" name="title" placeholder="lol">
+                <label class="label" for="orga">Nom</label>
+                <input class="iputP form-control" type="text" id="nom" name="nom" placeholder="thomas">
+                <label class="label" for="title">Prénom</label>
+                <input class="form-control" type="text" style="color:black" id="prenom" name="prenom" placeholder="lol">
                 <button class=" btnP btn btn-success col-md-2 offset-md-7" style="opacity:0;pointer-events:none" id="back1">BACK</button>
                 <button class=" btnP btn btn-success col-md-2" id="send1"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </div>
             <div class="form-group" id="step2">
-                <label class="label" for="categorie">Category</label>
-                <input class=" iputP form-control" type="text" id="cat" name="cat" placeholder="fight">
-                <label class="label" for="localisation">Location</label>
-                <input class=" form-control" type="text" id="location" name="loca" placeholder="Lyon">
+                <label class="label" for="categorie">Age</label>
+                <input class=" iputP form-control" type="text" id="age" name="age" placeholder="fight">
+                <label class="label" for="localisation">Adrèsse</label>
+                <input class=" form-control" type="text" id="adresse" name="adresse" placeholder="Lyon">
                 <button class=" btnP btn btn-success col-md-2  offset-md-7" id="back2"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <button class="btnP btn btn-success col-md-2" id="send2"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </div>
 
             <div class="form-group" id="step3">
-                <label class="label" for="date">Date</label>
+                <label class="label" for="date">Date de naissance</label>
                 <input class="iputP form-control" type="date" id="date" name="date">
-                <label class="label" for="description">Description</label>
-                <input class="form-control" type="text" id="text" name="text" placeholder="blablabla">
+                <label class="label" for="description">Genre/description</label>
+                <input class="form-control" type="text" id="genre" name="genre" placeholder="blablabla">
                 <button class=" btnP btn btn-success col-md-2  offset-md-7" id="back3"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                <button class=" btnP btn  btn-success col-md-2" id="endForm"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class=" btnP btn  btn-success col-md-2" id="sendForm"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
         </form>
         <p style="color:white" id="result"></p>

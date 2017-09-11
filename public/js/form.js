@@ -19,36 +19,58 @@ let back3 = document.getElementById('back3');
 
 
 send1.addEventListener('click', function(e) {
+    step1.style.opacity = 0;
     step1.style.display = 'none';
     titre1.style.display = "none";
     titre2.style.display = "block";
     step2.style.display = 'block';
 
+    setTimeout(function() {
+
+        step2.style.opacity = 1;
+    }, 10);
     e.preventDefault();
 
 })
 send2.addEventListener('click', function(e) {
+    step2.style.opacity = 0;
     step2.style.display = 'none';
     titre2.style.display = "none";
     titre3.style.display = "block";
     step3.style.display = 'block';
+
+    setTimeout(function() {
+
+        step3.style.opacity = 1;
+    }, 10);
     e.preventDefault();
 
 })
 back2.addEventListener('click', function(e) {
-    step1.style.display = 'block';
-    titre1.style.display = "block";
     titre2.style.display = "none";
     step2.style.display = 'none';
+    step1.style.display = 'block';
+    titre1.style.display = "block";
+
+
+    setTimeout(function() {
+
+        step1.style.opacity = 1;
+    }, 10);
 
     e.preventDefault();
 
 })
 back3.addEventListener('click', function(e) {
-    step2.style.display = 'block';
-    titre2.style.display = "block";
     titre3.style.display = "none";
     step3.style.display = 'none';
+    step2.style.display = 'block';
+    titre2.style.display = "block";
+
+    setTimeout(function() {
+
+        step2.style.opacity = 1;
+    }, 10);
 
     e.preventDefault();
 
@@ -77,7 +99,7 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         console.log("All filds must be completed");
         // document.querySelector("#statut").textContent = "Error";
         document.querySelector("#result").textContent = "All filds must be completed!";
-        
+
 
     } else {
         console.log("OK");

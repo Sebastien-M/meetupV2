@@ -3,12 +3,20 @@
     src: url('light.ttf');
 }
 
+#step1 {
+    transition: 1s;
+}
+
 #step2 {
     display: none;
+    transition: 1s;
+    opacity: 0;
 }
 
 #step3 {
     display: none;
+    transition: 0.5s;
+    opacity: 0;
 }
 
 #title {
@@ -23,10 +31,13 @@
 
 #form {
     background-color: rgba(41, 43, 44, 0.7);
-    height: 92.3%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 1em;
+    border: 1px solid #636b77;
+    width: 70%;
 }
 
 .btnP {
@@ -59,4 +70,12 @@
 .btn-success {
     background: transparent;
     border: 2px solid #1aa83b;
+}
+
+#free {
+    transition: 0.5s;
+}
+
+#free:hover {
+    color: rgb(17, 108, 255);
 }
