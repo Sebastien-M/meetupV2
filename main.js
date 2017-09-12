@@ -61,6 +61,7 @@ app.get("/addEvent", function(req, resp) {
 });
 app.get("/addUser", function(req, resp) {
     resp.render('register', {});
+    
 });
 
 app.post("/add", function(req, resp) {
