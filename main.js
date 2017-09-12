@@ -3,6 +3,7 @@ const mustache = require('mustache');
 const fs = require('fs');
 const basicAuth = require('express-basic-auth');
 const Client = require('mariasql');
+const bcrypt = require('bcrypt');
 let app = express();
 let bodyParser = require('body-parser');
 let eventName;
@@ -98,7 +99,7 @@ app.post('/register/add', function(req, res) {
     c.query(prep({
         nom: req.body.nom,
         prenom: req.body.prenom,
-        password: req.body.password,
+        password: bcrypt.hashSync(req.body.password, 10),
         adresse: req.body.adresse,
         date: req.body.date,
         mail: req.body.mail
@@ -108,6 +109,7 @@ app.post('/register/add', function(req, res) {
     });
     c.end();
 });
+
 
 
 app.engine("html", function(path, options, callback) {
@@ -125,3 +127,9 @@ app.set('view engine', 'html');
 app.listen(3000, function() {
     console.log('Listening on port 3000');
 });
+
+function hashpass(pass){
+    bcrypt.hash(pass, 10, function(err, hash) {
+        console.error(err);
+      });
+}
