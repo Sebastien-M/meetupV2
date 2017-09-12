@@ -22,15 +22,24 @@
 
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
         <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                <span class="navbar-toggler-icon"></span>
+              </button>
         <a class="navbar-brand" id="free" href="/">Free Events DataBase</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" id="create" href="/addEvent">Create Event<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
         <div class="navbar-collapse collapse" id="navbarsExampleDefault" aria-expanded="false" style="">
             <ul class="navbar-nav mr-auto">
             </ul>
             <div class="form-inline my-2 my-md-0">
-                <a id="createEventButton" href="/addEvent"><button class="btn btn-outline-success my-2 my-sm-0">Create Event</button></a>
+                <a id="createEventButton" href="/addUser"><button class="btn btn-outline-success my-2 my-sm-0">Sign Up</button></a>
             </div>
+
         </div>
     </nav>
 
@@ -52,8 +61,8 @@
                 <button class=" btnP btn btn-success col-md-2" id="send1"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </div>
             <div class="form-group" id="step2">
-                <label class="label" for="categorie">Age</label>
-                <input class=" iputP form-control" type="text" id="age" name="age" placeholder="fight">
+                <label class="label" for="categorie">Password</label>
+                <input class=" iputP form-control" type="password" id="pass" name="pass" placeholder="fight">
                 <label class="label" for="localisation">Adrèsse</label>
                 <input class=" form-control" type="text" id="adresse" name="adresse" placeholder="Lyon">
                 <button class=" btnP btn btn-success col-md-2  offset-md-7" id="back2"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
@@ -63,8 +72,8 @@
             <div class="form-group" id="step3">
                 <label class="label" for="date">Date de naissance</label>
                 <input class="iputP form-control" type="date" id="date" name="date">
-                <label class="label" for="description">Genre/description</label>
-                <input class="form-control" type="text" id="genre" name="genre" placeholder="blablabla">
+                <label class="label" for="description">E-mail</label>
+                <input class="form-control" type="email" id="mail" name="mail" placeholder="blablabla@blabla.bla">
                 <button class=" btnP btn btn-success col-md-2  offset-md-7" id="back3"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <button class=" btnP btn  btn-success col-md-2" id="sendForm"><i class="fa fa-check" aria-hidden="true"></i></button>
             </div>

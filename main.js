@@ -61,7 +61,7 @@ app.get("/addEvent", function(req, resp) {
 });
 app.get("/addUser", function(req, resp) {
     resp.render('register', {});
-    
+
 });
 
 app.post("/add", function(req, resp) {
@@ -69,6 +69,7 @@ app.post("/add", function(req, resp) {
     console.log(req.body.name);
 });
 
+// fonrmulaire event
 app.post('/event/add', function(req, res) {
     res.sendStatus(200);
     eventName = req.body.name;
@@ -87,18 +88,20 @@ app.post('/event/add', function(req, res) {
     });
     c.end();
 });
+
+// fonrmulaire user
 app.post('/register/add', function(req, res) {
     res.sendStatus(200);
     eventName = req.body.nom;
     eventPrenom = req.body.prenom;
-    var prep = c.prepare('INSERT INTO users(nom, prenom, age, adresse, date_naissance, genre) VALUES (:nom, :prenom, :age, :adresse, :date, :genre);');
+    var prep = c.prepare('INSERT INTO users(nom, prenom, date_naissance, adresse, password , mail) VALUES (:nom, :prenom, :date, :adresse, :password, :mail);');
     c.query(prep({
         nom: req.body.nom,
         prenom: req.body.prenom,
-        age: req.body.age,
+        password: req.body.password,
         adresse: req.body.adresse,
         date: req.body.date,
-        genre: req.body.genre
+        mail: req.body.mail
     }), function(err, rows) {
         if (err)
             throw err;

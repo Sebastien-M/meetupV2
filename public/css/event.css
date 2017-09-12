@@ -24,7 +24,6 @@
 }
 
 #titre {
-    /* display: none; */
     color: whitesmoke;
     font-family: "light";
     font-size: 2em;
@@ -34,6 +33,39 @@
 
 #free {
     transition: 0.5s;
+}
+
+#cobtn {
+    margin-left: 1em;
+}
+
+#sendco {
+    margin-top: 1em;
+}
+
+#hun {
+    color: whitesmoke;
+    margin-top: 20px;
+}
+
+#conection {
+    margin-top: 3em;
+}
+
+.titleco {
+    font-size: 22px;
+    font-family: "light";
+    color: whitesmoke;
+}
+
+#formCo {
+    background-color: rgba(41, 43, 44, 0.7);
+    height: 60%;
+    width: 50%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
 #start {
@@ -68,6 +100,7 @@ body {
 #create {
     font-size: 20px;
     transition: 0.5s;
+    font-weight: bold;
 }
 
 #create:hover {

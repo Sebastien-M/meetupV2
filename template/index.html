@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/event.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Acceuil</title>
 </head>
@@ -33,10 +34,27 @@
             <div class="form-inline my-2 my-md-0">
                 <a id="createEventButton" href="/addUser"><button class="btn btn-outline-success my-2 my-sm-0">Sign Up</button></a>
             </div>
+            <div class="form-inline my-2 my-md-0">
+                <a id="cobtn" href="#"><button class="btn btn-outline-success my-2 my-sm-0">Sign In</button></a>
+            </div>
         </div>
     </nav>
 
     <main>
+        <div id="formCo" class="container">
+            <div class="col-md-4 offset-md-3">
+                <h1 id="hun">Connect</h1>
+            </div>
+            <form id="conection" class="col-md-6  offset-md-3" action="#" method="POST">
+                <div class="form-group" id="stepCo">
+                    <label class="label titleco" for="orga">First Name</label>
+                    <input class="iputP form-control" type="text" id="fname" name="fname" placeholder="thomas">
+                    <label class="label titleco" for="title">Second Name</label>
+                    <input class="form-control" type="text" style="color:black" id="sname" name="sname" placeholder="cristophol">
+                    <button class=" btnP btn btn-success col-md-3 offset-md-9" id="sendco"><i class="fa fa-check" aria-hidden="true"></i></i></button>
+                </div>
+        </div>
+
         <div id="rm">
             <h1 id="title" class="text-center">FED</h1>
             <h2 id="pres" class="text-center">
@@ -77,6 +95,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="js/index.js">
+    </script>
+    <script src="js/connect.js">
     </script>
 
 </html>
