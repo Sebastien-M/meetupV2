@@ -1,5 +1,6 @@
 let email = document.querySelector("#email");
 let password = document.querySelector("#pasword");
+let result = document.querySelector("#connectResult");
 
 document.querySelector("#sendco").addEventListener("click", (e)=>{
     e.preventDefault();
@@ -11,7 +12,12 @@ document.querySelector("#sendco").addEventListener("click", (e)=>{
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                connected(xhr);
+                if (connected(xhr) == "true"){
+                result.textContent = "Email and password okay";
+                }
+                else if(connected(xhr) == "false"){
+                    result.textContent = "Invalid email or password";
+                }
             }
         }
     }
@@ -19,5 +25,5 @@ document.querySelector("#sendco").addEventListener("click", (e)=>{
 });
 
 function connected(xhr) {
-    console.log(xhr.responseText);
+    return xhr.responseText;
 }
