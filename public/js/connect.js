@@ -7,14 +7,14 @@ let send = document.querySelector('#sendco');
 
 
 
-conect.style.display = "none";
+// conect.style.display = "none";
 
 
-sign.addEventListener('click', function() {
-    conect.style.display = "block";
-    welcom.style.display = "none";
+// sign.addEventListener('click', function() {
+//     conect.style.display = "block";
+//     welcom.style.display = "none";
 
-});
+// });
 
 send.addEventListener('click', function() {
     let params = "nom=" + nom + "&prenom=" + prenom + "&password=" + password + "&adresse=" + adresse + "&date=" + date + "&mail=" + mail;

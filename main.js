@@ -65,6 +65,12 @@ app.get("/addUser", function(req, resp) {
 
 });
 
+app.get("/connection", function(req, resp) {
+    resp.render('connection', {});
+
+});
+
+
 app.post("/add", function(req, resp) {
     resp.send("ok");
     console.log(req.body.name);
