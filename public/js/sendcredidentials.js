@@ -11,9 +11,13 @@ document.querySelector("#sendco").addEventListener("click", (e)=>{
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                console.log(xhr.responseText);
+                connected(xhr);
             }
         }
     }
     xhr.send(params);
-})
+});
+
+function connected(xhr) {
+    console.log(xhr.responseText);
+}

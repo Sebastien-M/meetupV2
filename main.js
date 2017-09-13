@@ -131,14 +131,20 @@ app.post('/checkuser', function (req, res) {
         }
 
         if (rows.length > 1) {
-            res.send("Two or more users have the same email");
+            res.send(false);
             res.end();
         } else if (rows.length == 1) {
             ispassok = bcrypt.compareSync(req.body.password, rows[0].password);
-            res.send(ispassok);
+            // res.send(ispassok);
+            if (ispassok == true){
+                res.send(true)
+            }
+            else{
+                res.send(false);
+            }
             res.end();
         } else if (rows.length < 1) {
-            res.send("Invalid email or password");
+            res.send(false);
             res.end();
         }
 
