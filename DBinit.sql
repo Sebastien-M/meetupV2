@@ -11,4 +11,13 @@ CREATE TABLE events (
     organisator varchar(255) NOT NULL,
     PRIMARY KEY (ID)
 );
+CREATE TABLE userstest (
+    id int NOT NULL AUTO_INCREMENT,
+    nom varchar(255) NOT NULL, prenom VARCHAR(255),
+    password VARChAR(1000),
+    adresse VARCHAR(255),
+    date_naissance DATE,
+    mail VARCHAR(255),
+    PRIMARY KEY (ID)
+);
 

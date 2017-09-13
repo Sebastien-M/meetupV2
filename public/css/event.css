@@ -3,7 +3,6 @@
     src: url('light.ttf');
 }
 
-
 .btn-outline-success {
     color: white;
     border: 1px solid white;
@@ -59,13 +58,12 @@
 }
 
 #formCo {
+    position: absolute;
     background-color: rgba(41, 43, 44, 0.7);
     height: 60%;
     width: 50%;
     border: 1px solid lightgray;
-    /* display: flex;
-    justify-content: center; */
-    margin: auto;
+    margin-top: 3em;
 }
 
 #start {
@@ -81,10 +79,19 @@
     margin-top: 4em;
 }
 
+#carou {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+#nav {
+    z-index: 2;
+}
+
 body,
 html {
-    /* background: url(montain.jpg) no-repeat center fixed; */
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('montain.jpg') no-repeat center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../image/montain.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     height: 100%;
@@ -108,6 +115,7 @@ body {
 }
 
 main {
+    position: relative;
     height: 90vh;
     display: flex;
     justify-content: center;
@@ -123,6 +131,7 @@ main {
 }
 
 #rm {
+    position: absolute;
     transition: 1s;
 }
 
@@ -156,7 +165,7 @@ main {
     padding: 0;
 }
 
-.formcontainer{
+.formcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
