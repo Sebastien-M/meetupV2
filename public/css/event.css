@@ -3,8 +3,6 @@
     src: url('light.ttf');
 }
 
-#createEventButton {}
-
 .btn-outline-success {
     color: white;
     border: 1px solid white;
@@ -64,9 +62,9 @@
     background-color: rgba(41, 43, 44, 0.7);
     height: 60%;
     width: 50%;
-    border: 1px solid white;
-    display: flex;
-    justify-content: center;
+    border: 1px solid lightgray;
+    /* display: flex;
+    justify-content: center; */
     margin: auto;
 }
 
@@ -121,7 +119,7 @@ body {
 
 main {
     position: relative;
-    height: 91vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -138,10 +136,6 @@ main {
 #rm {
     position: absolute;
     transition: 1s;
-}
-
-.evenements {
-    /* display:none; */
 }
 
 .eventsList {
@@ -172,4 +166,11 @@ main {
 #infoevent {
     list-style: none;
     padding: 0;
+}
+
+.formcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
 }

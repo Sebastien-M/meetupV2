@@ -4,11 +4,15 @@ const fs = require('fs');
 const basicAuth = require('express-basic-auth');
 const Client = require('mariasql');
 const bcrypt = require('bcrypt');
+
 let app = express();
 let bodyParser = require('body-parser');
 let eventName;
 let eventLocation;
 let events;
+let email;
+let password;
+let ispassok;
 
 
 var c = new Client({
@@ -18,7 +22,7 @@ var c = new Client({
     db: 'eventfinder'
 });
 
-c.query('SELECT * FROM events', function(err, rows) {
+c.query('SELECT * FROM events', function (err, rows) {
     if (err)
         throw err;
 });
@@ -32,8 +36,8 @@ app.use(bodyParser.urlencoded({
 
 app.use("/", express.static('public'));
 
-app.get("/", function(req, resp) {
-    c.query('SELECT * FROM events', function(err, rows) {
+app.get("/", function (req, resp) {
+    c.query('SELECT * FROM events', function (err, rows) {
         if (err)
             throw err;
         events = rows;
@@ -45,11 +49,11 @@ app.get("/", function(req, resp) {
 });
 
 
-app.post("/event/del", function(req, resp) {
+app.post("/event/del", function (req, resp) {
     var prep = c.prepare('DELETE FROM events WHERE id=:id;');
     c.query(prep({
         id: req.body.id
-    }), function(err, rows) {
+    }), function (err, rows) {
         if (err)
             throw err;
     });
@@ -57,21 +61,27 @@ app.post("/event/del", function(req, resp) {
 });
 
 
-app.get("/addEvent", function(req, resp) {
+app.get("/addEvent", function (req, resp) {
     resp.render('formulaire', {});
 });
-app.get("/addUser", function(req, resp) {
+app.get("/addUser", function (req, resp) {
     resp.render('register', {});
 
 });
 
-app.post("/add", function(req, resp) {
+app.get("/connection", function (req, resp) {
+    resp.render('connection', {});
+
+});
+
+
+app.post("/add", function (req, resp) {
     resp.send("ok");
     console.log(req.body.name);
 });
 
 // fonrmulaire event
-app.post('/event/add', function(req, res) {
+app.post('/event/add', function (req, res) {
     res.sendStatus(200);
     eventName = req.body.name;
     eventLocation = req.body.location;
@@ -83,7 +93,7 @@ app.post('/event/add', function(req, res) {
         category: req.body.cat,
         description: req.body.desc,
         organisator: req.body.orga
-    }), function(err, rows) {
+    }), function (err, rows) {
         if (err)
             throw err;
     });
@@ -91,7 +101,7 @@ app.post('/event/add', function(req, res) {
 });
 
 // fonrmulaire user
-app.post('/register/add', function(req, res) {
+app.post('/register/add', function (req, res) {
     res.sendStatus(200);
     eventName = req.body.nom;
     eventPrenom = req.body.prenom;
@@ -103,17 +113,49 @@ app.post('/register/add', function(req, res) {
         adresse: req.body.adresse,
         date: req.body.date,
         mail: req.body.mail
-    }), function(err, rows) {
+    }), function (err, rows) {
         if (err)
             throw err;
     });
     c.end();
 });
 
+app.post('/checkuser', function (req, res) {
+    //select email from db
+    var prep = c.prepare('SELECT * FROM users where mail = :email');
+    c.query(prep({
+        email: req.body.email
+    }), function (err, rows) {
+        if (err) {
+            throw err;
+        }
+
+        if (rows.length > 1) {
+            res.send(false);
+            res.end();
+        } else if (rows.length == 1) {
+            ispassok = bcrypt.compareSync(req.body.password, rows[0].password);
+            // res.send(ispassok);
+            if (ispassok == true){
+                res.send(true)
+            }
+            else{
+                res.send(false);
+            }
+            res.end();
+        } else if (rows.length < 1) {
+            res.send(false);
+            res.end();
+        }
+
+    });
+    c.end();
+
+});
 
 
-app.engine("html", function(path, options, callback) {
-    fs.readFile(path, function(err, content) {
+app.engine("html", function (path, options, callback) {
+    fs.readFile(path, function (err, content) {
         if (err) {
             return callback(err);
         }
@@ -124,12 +166,12 @@ app.engine("html", function(path, options, callback) {
 
 app.set('views', './template');
 app.set('view engine', 'html');
-app.listen(3000, function() {
+app.listen(3000, function () {
     console.log('Listening on port 3000');
 });
 
-function hashpass(pass){
-    bcrypt.hash(pass, 10, function(err, hash) {
+function hashpass(pass) {
+    bcrypt.hash(pass, 10, function (err, hash) {
         console.error(err);
-      });
+    });
 }
