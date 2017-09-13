@@ -12,6 +12,7 @@ let eventLocation;
 let events;
 let email;
 let password;
+let ispassok;
 
 
 var c = new Client({
@@ -120,7 +121,7 @@ app.post('/register/add', function (req, res) {
 });
 
 app.post('/checkuser', function (req, res) {
-    //SQL
+    //select email from db
     var prep = c.prepare('SELECT * FROM users where mail = :email');
     c.query(prep({
         email: req.body.email
@@ -128,15 +129,23 @@ app.post('/checkuser', function (req, res) {
         if (err) {
             throw err;
         }
-        console.log(rows[0].password);
+
+        if (rows.length > 1) {
+            res.send("Two or more users have the same email");
+            res.end();
+        } else if (rows.length == 1) {
+            ispassok = bcrypt.compareSync(req.body.password, rows[0].password);
+            res.send(ispassok);
+            res.end();
+        } else if (rows.length < 1) {
+            res.send("Invalid email or password");
+            res.end();
+        }
+
     });
     c.end();
-    //compare with hashed pass
-    // bcrypt.compare(myPlaintextPassword, hash).then(function(res) {});
-    email = req.body.email;
-    password = req.body.password;
-    res.send("aaaaaa");
-})
+
+});
 
 
 app.engine("html", function (path, options, callback) {
