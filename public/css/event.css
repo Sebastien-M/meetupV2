@@ -63,9 +63,7 @@
     height: 60%;
     width: 50%;
     border: 1px solid lightgray;
-    /* display: flex;
-    justify-content: center; */
-    margin: auto;
+    margin-top: 3em;
 }
 
 #start {
@@ -93,8 +91,7 @@
 
 body,
 html {
-    /* background: url(montain.jpg) no-repeat center fixed; */
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('montain.jpg') no-repeat center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../image/montain.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     height: 100%;
