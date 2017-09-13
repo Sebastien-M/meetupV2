@@ -98,7 +98,7 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         text === "") {
         console.log("All filds must be completed");
         // document.querySelector("#statut").textContent = "Error";
-        document.querySelector("#result").textContent = "All filds must be completed!";
+        document.querySelector("#result").textContent = "All fields must be completed!";
 
 
     } else {
@@ -123,5 +123,3 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
 
     }
 });
-
-

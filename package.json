@@ -24,10 +24,13 @@
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "express-basic-auth": "^1.1.2",
+    "express-session": "^1.15.5",
     "http-auth": "^3.2.3",
     "mariasql": "^0.2.6",
-    "mustache": "^2.3.0"
+    "mustache": "^2.3.0",
+    "save": "^2.3.1"
   }
 }

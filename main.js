@@ -4,6 +4,9 @@ const fs = require('fs');
 const basicAuth = require('express-basic-auth');
 const Client = require('mariasql');
 const bcrypt = require('bcrypt');
+const session = require('express-session')
+const parseurl = require('parseurl')
+const cookieParser = require('cookie-parser');
 
 let app = express();
 let bodyParser = require('body-parser');
@@ -13,6 +16,22 @@ let events;
 let email;
 let password;
 
+// app.use(cookieParser());
+// app.use(session({
+//     secret: 'keyboard cat',
+//     resave: false,
+//     saveUninitialized: true
+// }))
+// app.get('/', function(req, res) {
+//     if (req.session.page_views) {
+//         req.session.page_views++;
+//         res.send("You visited this page " + req.session.page_views + " times");
+//     } else {
+//         req.session.page_views = 1;
+//         res.send("Welcome to this page for the first time!");
+//     }
+// });
+
 
 var c = new Client({
     host: '127.0.0.1',
@@ -21,7 +40,7 @@ var c = new Client({
     db: 'eventfinder'
 });
 
-c.query('SELECT * FROM events', function (err, rows) {
+c.query('SELECT * FROM events', function(err, rows) {
     if (err)
         throw err;
 });
@@ -35,128 +54,133 @@ app.use(bodyParser.urlencoded({
 
 app.use("/", express.static('public'));
 
-app.get("/", function (req, resp) {
-    c.query('SELECT * FROM events', function (err, rows) {
-        if (err)
-            throw err;
-        events = rows;
-        resp.render('index', {
-            events: events
-        });
-    });
-    c.end();
-});
+app.get("/", function(req, resp) {
+            c.query('SELECT * FROM events', function(err, rows) {
+                if (err)
+                    throw err;
+                events = rows;
+                if (
+                    resp.render('index', {
+                        events: events,
+                        message: Bienvenue
+                    }));
+                else(
+                    resp.render('index', {
+                        events: events,
+                    }));
+                c.end();
+            });
 
 
-app.post("/event/del", function (req, resp) {
-    var prep = c.prepare('DELETE FROM events WHERE id=:id;');
-    c.query(prep({
-        id: req.body.id
-    }), function (err, rows) {
-        if (err)
-            throw err;
-    });
-    c.end();
-});
+            app.post("/event/del", function(req, resp) {
+                var prep = c.prepare('DELETE FROM events WHERE id=:id;');
+                c.query(prep({
+                    id: req.body.id
+                }), function(err, rows) {
+                    if (err)
+                        throw err;
+                });
+                c.end();
+            });
 
 
-app.get("/addEvent", function (req, resp) {
-    resp.render('formulaire', {});
-});
-app.get("/addUser", function (req, resp) {
-    resp.render('register', {});
+            app.get("/addEvent", function(req, resp) {
+                resp.render('formulaire', {});
+            });
+            app.get("/addUser", function(req, resp) {
+                resp.render('register', {});
 
-});
+            });
 
-app.get("/connection", function (req, resp) {
-    resp.render('connection', {});
+            app.get("/connection", function(req, resp) {
+                resp.render('connection', {});
 
-});
-
-
-app.post("/add", function (req, resp) {
-    resp.send("ok");
-    console.log(req.body.name);
-});
-
-// fonrmulaire event
-app.post('/event/add', function (req, res) {
-    res.sendStatus(200);
-    eventName = req.body.name;
-    eventLocation = req.body.location;
-    var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (:name, :location, :hour, :category, :description, :organisator);');
-    c.query(prep({
-        name: req.body.name,
-        location: req.body.location,
-        hour: req.body.date,
-        category: req.body.cat,
-        description: req.body.desc,
-        organisator: req.body.orga
-    }), function (err, rows) {
-        if (err)
-            throw err;
-    });
-    c.end();
-});
-
-// fonrmulaire user
-app.post('/register/add', function (req, res) {
-    res.sendStatus(200);
-    eventName = req.body.nom;
-    eventPrenom = req.body.prenom;
-    var prep = c.prepare('INSERT INTO users(nom, prenom, date_naissance, adresse, password , mail) VALUES (:nom, :prenom, :date, :adresse, :password, :mail);');
-    c.query(prep({
-        nom: req.body.nom,
-        prenom: req.body.prenom,
-        password: bcrypt.hashSync(req.body.password, 10),
-        adresse: req.body.adresse,
-        date: req.body.date,
-        mail: req.body.mail
-    }), function (err, rows) {
-        if (err)
-            throw err;
-    });
-    c.end();
-});
-
-app.post('/checkuser', function (req, res) {
-    //SQL
-    var prep = c.prepare('SELECT * FROM users where mail = :email');
-    c.query(prep({
-        email: req.body.email
-    }), function (err, rows) {
-        if (err) {
-            throw err;
-        }
-        console.log(rows[0].password);
-    });
-    c.end();
-    //compare with hashed pass
-    // bcrypt.compare(myPlaintextPassword, hash).then(function(res) {});
-    email = req.body.email;
-    password = req.body.password;
-    res.send("aaaaaa");
-})
+            });
 
 
-app.engine("html", function (path, options, callback) {
-    fs.readFile(path, function (err, content) {
-        if (err) {
-            return callback(err);
-        }
-        let str = mustache.render(content.toString(), options);
-        return callback(null, str);
-    });
-});
+            app.post("/add", function(req, resp) {
+                resp.send("ok");
+                console.log(req.body.name);
+            });
 
-app.set('views', './template');
-app.set('view engine', 'html');
-app.listen(3000, function () {
-    console.log('Listening on port 3000');
-});
+            // fonrmulaire event
+            app.post('/event/add', function(req, res) {
+                res.sendStatus(200);
+                eventName = req.body.name;
+                eventLocation = req.body.location;
+                var prep = c.prepare('INSERT INTO events(name, location, hour, category, description, organisator) VALUES (:name, :location, :hour, :category, :description, :organisator);');
+                c.query(prep({
+                    name: req.body.name,
+                    location: req.body.location,
+                    hour: req.body.date,
+                    category: req.body.cat,
+                    description: req.body.desc,
+                    organisator: req.body.orga
+                }), function(err, rows) {
+                    if (err)
+                        throw err;
+                });
+                c.end();
+            });
 
-function hashpass(pass) {
-    bcrypt.hash(pass, 10, function (err, hash) {
-        console.error(err);
-    });
-}
+            // fonrmulaire user
+            app.post('/register/add', function(req, res) {
+                res.sendStatus(200);
+                eventName = req.body.nom;
+                eventPrenom = req.body.prenom;
+                var prep = c.prepare('INSERT INTO users(nom, prenom, date_naissance, adresse, password , mail) VALUES (:nom, :prenom, :date, :adresse, :password, :mail);');
+                c.query(prep({
+                    nom: req.body.nom,
+                    prenom: req.body.prenom,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    adresse: req.body.adresse,
+                    date: req.body.date,
+                    mail: req.body.mail
+                }), function(err, rows) {
+                    if (err)
+                        throw err;
+                });
+                c.end();
+            });
+
+            app.post('/checkuser', function(req, res) {
+                //SQL
+                var prep = c.prepare('SELECT * FROM users where mail = :email');
+                c.query(prep({
+                    email: req.body.email
+                }), function(err, rows) {
+                    if (err) {
+                        throw err;
+                    }
+                    console.log(rows[0].password);
+                });
+                c.end();
+                //compare with hashed pass
+                // bcrypt.compare(myPlaintextPassword, hash).then(function(res) {});
+                email = req.body.email;
+                password = req.body.password;
+                res.send("aaaaaa");
+            })
+
+
+            app.engine("html", function(path, options, callback) {
+                fs.readFile(path, function(err, content) {
+                    if (err) {
+                        return callback(err);
+                    }
+                    let str = mustache.render(content.toString(), options);
+                    return callback(null, str);
+                });
+            });
+
+            app.set('views', './template');
+            app.set('view engine', 'html');
+            app.listen(3000, function() {
+                console.log('Listening on port 3000');
+            });
+
+            function hashpass(pass) {
+                bcrypt.hash(pass, 10, function(err, hash) {
+                    console.error(err);
+                });
+            }
