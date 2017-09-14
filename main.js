@@ -17,21 +17,13 @@ let email;
 let password;
 let ispassok;
 
-// app.use(cookieParser());
-// app.use(session({
-//     secret: 'keyboard cat',
-//     resave: false,
-//     saveUninitialized: true
-// }))
-// app.get('/', function(req, res) {
-//     if (req.session.page_views) {
-//         req.session.page_views++;
-//         res.send("You visited this page " + req.session.page_views + " times");
-//     } else {
-//         req.session.page_views = 1;
-//         res.send("Welcome to this page for the first time!");
-//     }
-// });
+app.use(cookieParser());
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
+
 
 
 var c = new Client({
@@ -154,16 +146,24 @@ app.post('/checkuser', function(req, res) {
             res.end();
         } else if (rows.length == 1) {
             ispassok = bcrypt.compareSync(req.body.password, rows[0].password);
-            // res.send(ispassok);
+            // connexion
             if (ispassok == true) {
-                res.send(true)
+                res.send(true);
+                req.session.connect = true;
+                console.log(req.session.connect);
+
             } else {
                 res.send(false);
+                req.session.connect = false;
+                console.log(req.session.connect);
             }
             res.end();
         } else if (rows.length < 1) {
             res.send(false);
             res.end();
+            req.session.connect = false;
+            console.log(req.session.connect);
+
         }
 
     });

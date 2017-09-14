@@ -72,6 +72,11 @@
     border: 2px solid #1aa83b;
 }
 
+.btn-danger {
+    background: transparent;
+    border: 2px solid red;
+}
+
 #free {
     transition: 0.5s;
 }
