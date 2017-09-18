@@ -11,7 +11,7 @@ CREATE TABLE events (
     organisator varchar(255) NOT NULL,
     PRIMARY KEY (ID)
 );
-CREATE TABLE userstest (
+CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
     nom varchar(255) NOT NULL, prenom VARCHAR(255),
     password VARChAR(1000),

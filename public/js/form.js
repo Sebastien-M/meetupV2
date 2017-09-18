@@ -78,10 +78,6 @@ back3.addEventListener('click', function(e) {
 
 
 
-
-
-
-
 document.querySelector("#endForm").addEventListener("click", function(e) {
     e.preventDefault();
     let title = document.getElementById("title").value;
@@ -96,9 +92,19 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
         loca === "" ||
         date === "" ||
         text === "") {
-        console.log("All filds must be completed");
+        console.log("All fields must be completed");
         // document.querySelector("#statut").textContent = "Error";
-        document.querySelector("#result").textContent = "All filds must be completed!";
+
+
+        document.querySelector('#endForm').innerHTML = '<i class= "fa fa-times" aria-hidden="true"></i>';
+        document.querySelector('#endForm').className = "btnP btn btn-danger col-md-2";
+        document.querySelector("#result").textContent = "All fields must be completed!";
+        setTimeout(function() {
+            document.querySelector('#endForm').innerHTML = '<i class= "fa fa-check" aria-hidden="true"></i>';
+            document.querySelector('#endForm').className = "btnP btn btn-success col-md-2";
+
+        }, 1000);
+
 
 
     } else {
@@ -123,5 +129,3 @@ document.querySelector("#endForm").addEventListener("click", function(e) {
 
     }
 });
-
-
